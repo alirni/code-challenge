@@ -1,7 +1,9 @@
+import { Header } from 'components';
+
 const MainLayout = ({ children }) => {
   return (
     <>
-      <div>header</div>
+      <Header />
       {children}
     </>
   );
