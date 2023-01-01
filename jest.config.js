@@ -12,6 +12,7 @@ const customJestConfig = {
     '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
   },
   testEnvironment: 'jest-environment-jsdom',
+  transform: { '^.+\\.(js|jsx)?$': ['babel-jest', { presets: ['next/babel'] }] },
 };
 
 module.exports = createJestConfig(customJestConfig);

@@ -1,0 +1,21 @@
+.movieListContainer {
+    [data-direction] {
+        z-index: 10;
+        top: calc(50% - 17px);
+        width: 50px;
+        height: 50px;
+        // display: block;
+        cursor: pointer;
+        // border: none;
+        position: absolute;
+        color: white;
+    }
+
+    [data-direction='left'] { /* Left button */
+        left: -10px;
+    }
+
+    [data-direction='right'] { /* Right button */
+        right: -10px;
+    }
+}
