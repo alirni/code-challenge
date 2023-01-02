@@ -22,7 +22,7 @@ const MovieList = ({ list, title }) => {
         leftArrow={<ChevronLeftIcon data-direction='left' />}
         rightArrow={<ChevronRightIcon data-direction='right' />}
       >
-        {!!list.length && list.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
+        {!!list?.length && list?.map((movie) => <MovieCard key={movie?.id} movie={movie} />)}
       </Carousel>
     </div>
   );

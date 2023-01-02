@@ -1,23 +1,43 @@
-import { useQuery } from 'react-query';
+import classNames from 'classnames';
+import useImage, { imageSizeKey } from 'hooks/useImage';
+import Link from 'next/link';
 
-const MovieCard = ({ movie }) => {
-  const { data: config, isLoading } = useQuery(['config']);
-
-  if (isLoading) return <div>Loading...</div>;
+const MovieCard = ({ movie, className = '', isLarge = false }) => {
+  const imageUrl = useImage({
+    path: movie?.poster_path,
+    size: imageSizeKey.poster,
+    sizeIndex: 3,
+  });
 
   return (
-    <div className='flex flex-col h-full cursor-pointer w-52'>
-      <div className='p-2 text-sm font-bold text-center text-white bg-gray-500 rounded-t bg-opacity-70'>
-        {movie?.original_title}
-      </div>
+    <Link href={`/movie/${movie?.id}`} prefetch={false}>
       <div
-        className='flex-grow bg-center bg-cover rounded-b'
-        style={{
-          minHeight: 320,
-          backgroundImage: `url(${config?.images?.base_url}${config?.images?.poster_sizes[3]}${movie?.poster_path})`,
-        }}
-      />
-    </div>
+        className={classNames(
+          'flex flex-col h-full cursor-pointer',
+          isLarge ? 'w-96' : 'w-52',
+          className
+        )}
+      >
+        <div
+          className={classNames(
+            'p-2 font-bold text-center text-white bg-white bg-opacity-10',
+            isLarge ? 'text-xl rounded-t-lg' : 'text-sm rounded-t'
+          )}
+        >
+          {movie?.title}
+        </div>
+        <div
+          className={classNames(
+            'flex-grow bg-center bg-cover rounded-b-lg',
+            isLarge ? 'rounded-b-lg' : 'rounded-b'
+          )}
+          style={{
+            minHeight: isLarge ? 500 : 320,
+            backgroundImage: `url(${imageUrl})`,
+          }}
+        />
+      </div>
+    </Link>
   );
 };
 
