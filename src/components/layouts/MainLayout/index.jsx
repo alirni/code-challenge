@@ -6,7 +6,8 @@ const MainLayout = ({ image, children }) => {
       className='bg-center bg-cover'
       style={{
         backgroundImage: `url(${image})`,
-        height: 'calc(100vh - 40px)',
+        height: 'calc(100vh - 52px)',
+        paddingTop: 52,
       }}
     >
       <Header />
