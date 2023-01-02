@@ -5,7 +5,7 @@ const Button = ({ title, onclick, type = 'primary', className }) => {
 
   return (
     <div
-      className={classNames('px-4 py-2 rounded', buttonStyle[type], className)}
+      className={classNames('px-4 py-2 rounded cursor-pointer', buttonStyle[type], className)}
       onClick={onclick}
     >
       {title}
