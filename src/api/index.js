@@ -35,6 +35,5 @@ export const getMovieApi = async (id) => {
     params: 'append_to_response=images',
   });
 
-  console.log('index.js:39 >> data', { data });
   return data;
 };

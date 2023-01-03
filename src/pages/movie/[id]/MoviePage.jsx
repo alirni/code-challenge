@@ -1,4 +1,4 @@
-import { Button, MovieCard, MovieLayout } from 'components';
+import { Button, MainLayout, MovieCard } from 'components';
 import { StoreContext } from 'context/store';
 import useImage, { imageSizeKey } from 'hooks/useImage';
 import { useRouter } from 'next/router';
@@ -28,7 +28,7 @@ function MoviePage() {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <MovieLayout image={imageUrl}>
+    <MainLayout image={imageUrl}>
       <div className='flex items-center justify-between p-10'>
         <MovieCard movie={data} isLarge noLink />
         <div className='flex flex-col items-center p-6 mx-auto bg-white rounded basis-1/3 bg-opacity-10'>
@@ -43,7 +43,7 @@ function MoviePage() {
           />
         </div>
       </div>
-    </MovieLayout>
+    </MainLayout>
   );
 }
 
