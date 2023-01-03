@@ -1,8 +1,6 @@
 import classNames from 'classnames';
-import { BREAKPOINTS } from 'const';
-import useImage, { imageSizeKey } from 'hooks/useImage';
+import { imageSizeKey, useImage } from 'hooks';
 import Link from 'next/link';
-import { useBreakpoint } from 'use-breakpoint';
 
 const MovieCard = ({ movie, className = '', isLarge = false, noLink = false, type }) => {
   const imageUrl = useImage({

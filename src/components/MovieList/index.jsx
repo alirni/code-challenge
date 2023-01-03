@@ -1,11 +1,11 @@
 import { Carousel } from '@trendyol-js/react-carousel';
 import classNames from 'classnames';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import { useBreakpoint } from 'use-breakpoint';
 
 import { MovieCard } from 'components';
-import styles from './styles.module.scss';
-import { useBreakpoint } from 'use-breakpoint';
 import { BREAKPOINTS } from 'const';
+import styles from './styles.module.scss';
 
 const MovieList = ({ list, title, type, className }) => {
   const { breakpoint } = useBreakpoint(BREAKPOINTS, 'desktop');

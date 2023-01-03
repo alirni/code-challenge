@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Button, MainLayout, MovieCard } from 'components';
 import { BREAKPOINTS } from 'const';
 import { StoreContext } from 'context/store';
-import useImage, { imageSizeKey } from 'hooks/useImage';
+import { imageSizeKey, useImage } from 'hooks';
 import { useRouter } from 'next/router';
 import { useContext, useMemo } from 'react';
 import { useQuery } from 'react-query';

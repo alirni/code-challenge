@@ -1,5 +1,5 @@
 import { StoreContext } from 'context/store';
-import useAddToWishlist from 'hooks/useAddToWishlist';
+import { useAddToWishlist } from 'hooks';
 import { useState } from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 

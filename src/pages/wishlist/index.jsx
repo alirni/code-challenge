@@ -32,7 +32,7 @@ const WishlistPage = () => {
         <div className='flex items-center justify-center h-full text-lg font-bold'>
           Your wishlist is empty! Pleas go back to
           <Link href='/home'>
-            <div className='ml-1 text-primary-default bg-pr'> home page</div>
+            <div className='ml-1 text-primary-default bg-pr'>home page</div>
           </Link>
           .
         </div>

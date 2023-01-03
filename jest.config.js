@@ -4,14 +4,16 @@ const createJestConfig = nextJest({
   dir: './',
 });
 
-const customJestConfig = {
+const config = {
+  transform: { '^.+\\.(js|jsx)?$': ['babel-jest', { presets: ['next/babel'] }] },
+  testEnvironment: 'jsdom',
+  roots: ['<rootDir>/src/'],
+  modulePaths: ['<rootDir>/src/'],
+  moduleDirectories: ['node_modules'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   moduleNameMapper: {
-    '^@/components/(.*)$': '<rootDir>/src/components/$1',
-    '^@/pages/(.*)$': '<rootDir>/src/pages/$1',
+    'tailwind.config': '<rootDir>/tailwind.config',
   },
-  testEnvironment: 'jest-environment-jsdom',
-  transform: { '^.+\\.(js|jsx)?$': ['babel-jest', { presets: ['next/babel'] }] },
 };
 
-module.exports = createJestConfig(customJestConfig);
+module.exports = createJestConfig(config);
