@@ -7,7 +7,7 @@ const MovieItems = ({ list, title, type, className }) => {
     <div className={classNames('flex flex-col p-6', className)}>
       <div className='mb-4 text-lg font-bold capitalize'>{title}</div>
 
-      <div className='grid gap-y-6 grid-cols-6'>
+      <div className='mx-auto lg:mx-0 grid gap-y-6 lg:grid-cols-5'>
         {!!list?.length &&
           list?.map((movie) => (
             <MovieCard className='m-4' key={movie?.id} movie={movie} type={type} />

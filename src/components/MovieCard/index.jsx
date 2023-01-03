@@ -1,6 +1,8 @@
 import classNames from 'classnames';
+import { BREAKPOINTS } from 'const';
 import useImage, { imageSizeKey } from 'hooks/useImage';
 import Link from 'next/link';
+import { useBreakpoint } from 'use-breakpoint';
 
 const MovieCard = ({ movie, className = '', isLarge = false, noLink = false, type }) => {
   const imageUrl = useImage({
@@ -12,10 +14,10 @@ const MovieCard = ({ movie, className = '', isLarge = false, noLink = false, typ
   const Container = noLink ? 'div' : Link;
 
   return (
-    <Container href={`/movie/${movie?.id}?type=${type}`} prefetch={false}>
+    <Container href={`/movie/${movie?.id}?type=${type}`}>
       <div
         className={classNames(
-          'flex flex-col h-full',
+          'flex flex-col h-full mb-4 lg:mb-0',
           isLarge ? 'w-96' : 'w-52',
           !noLink && 'cursor-pointer',
           className

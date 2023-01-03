@@ -15,7 +15,7 @@ const Button = ({ title, onclick, type = 'primary', className, disabled = false 
         buttonStyle[disabled ? 'disabled' : type],
         className
       )}
-      onClick={!disabled && onclick}
+      onClick={!disabled ? onclick : () => {}}
     >
       {title}
     </div>

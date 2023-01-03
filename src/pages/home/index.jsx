@@ -1,23 +1,34 @@
-import HomePage from './HomePage';
+import { discoverApi } from 'api';
+import { MainLayout, MovieList } from 'components';
+import { useQueries } from 'react-query';
 
-import { getGenreApi, discoverApi, configurationApi } from 'api';
-import { dehydrate, QueryClient } from 'react-query';
+function HomePage() {
+  const [actionsMovie, comedyMovie, mysteryMovie] = useQueries([
+    { queryKey: ['actionsMovie'], queryFn: () => discoverApi(28) },
+    { queryKey: ['comedyMovie'], queryFn: () => discoverApi(35) },
+    { queryKey: ['mysteryMovie'], queryFn: () => discoverApi(9648) },
+  ]);
 
-export const getServerSideProps = async (context) => {
-  const queryClient = new QueryClient();
+  if (actionsMovie.isLoading || comedyMovie.isLoading || mysteryMovie.isLoading)
+    return <div>Loading...</div>;
 
-  await queryClient.prefetchQuery(['config'], () => configurationApi());
-
-  await queryClient.prefetchQuery(['genre'], () => getGenreApi());
-  await queryClient.prefetchQuery(['actionsMovie'], () => discoverApi('28'));
-  await queryClient.prefetchQuery(['comedyMovie'], () => discoverApi('35'));
-  await queryClient.prefetchQuery(['mysteryMovie'], () => discoverApi('9648'));
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-};
+  return (
+    <MainLayout image='/img/back.jpg'>
+      <MovieList
+        className='mb-4'
+        title='Top Action Movies 2022'
+        list={actionsMovie.data}
+        type='primary'
+      />
+      <MovieList
+        className='mb-4'
+        title='Top Comedy Movies 2022'
+        list={comedyMovie.data}
+        type='secondary'
+      />
+      <MovieList title='Top Mystery Movies 2022' list={mysteryMovie.data} type='important' />
+    </MainLayout>
+  );
+}
 
 export default HomePage;

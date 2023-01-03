@@ -2,7 +2,6 @@ import { StoreContext } from 'context/store';
 import useAddToWishlist from 'hooks/useAddToWishlist';
 import { useState } from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
 
 import 'styles/globals.css';
 function App({ Component, pageProps }) {
@@ -12,12 +11,9 @@ function App({ Component, pageProps }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <StoreContext.Provider value={{ addToWishlist, wishlist }}>
-          <Component {...pageProps} />
-        </StoreContext.Provider>
-        <ReactQueryDevtools initialIsOpen={false} />
-      </Hydrate>
+      <StoreContext.Provider value={{ addToWishlist, wishlist }}>
+        <Component {...pageProps} />
+      </StoreContext.Provider>
     </QueryClientProvider>
   );
 }
