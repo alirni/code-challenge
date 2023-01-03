@@ -20,7 +20,7 @@ function MoviePage() {
   const { addToWishlist, wishlist } = useContext(StoreContext);
 
   const imageUrl = useImage({
-    path: data.backdrop_path,
+    path: data?.backdrop_path,
     size: imageSizeKey.backdrop,
     sizeIndex: 2,
   });

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import axios from 'axios';
 
 const callApi = async ({ url, params }) =>
@@ -6,25 +7,26 @@ const callApi = async ({ url, params }) =>
   );
 
 export const getGenreApi = async () => {
-  const { data } = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/genre/movie/list?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
-  );
+  const { data } = await callApi({
+    url: '/genre/movie/list',
+  });
 
   return data;
 };
 
 export const discoverApi = async (genreId) => {
-  const { data } = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/discover/movie?api_key=${process.env.NEXT_PUBLIC_API_KEY}&with_genres=${genreId}&primary_release_year=2022&region=US&vote_count.gte=7`
-  );
+  const { data } = await callApi({
+    url: '/discover/movie',
+    params: `with_genres=${genreId}&primary_release_year=2022&region=US&vote_count.gte=7`,
+  });
 
   return data.results;
 };
 
 export const configurationApi = async () => {
-  const { data } = await axios.get(
-    `${process.env.NEXT_PUBLIC_API_URL}/configuration?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
-  );
+  const { data } = await callApi({
+    url: '/configuration',
+  });
 
   return data;
 };
