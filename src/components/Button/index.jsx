@@ -2,7 +2,9 @@ import classNames from 'classnames';
 
 const Button = ({ title, onclick, type = 'primary', className, disabled = false }) => {
   const buttonStyle = {
-    primary: 'bg-white text-black hover:bg-gray-200',
+    primary: 'bg-primary-default text-black hover:bg-primary-dark',
+    secondary: 'bg-secondary-default text-black hover:bg-secondary-dark',
+    important: 'bg-important-default text-black hover:bg-important-dark',
     disabled: 'bg-white text-gray-500 cursor-not-allowed',
   };
 

@@ -11,7 +11,7 @@ const MainLayout = ({ image, children }) => {
       <Header />
       <div
         className='fixed left-0 right-0 overflow-auto bg-black bg-opacity-75'
-        style={{ height: 'calc(100vh)', paddingTop: 52 }}
+        style={{ height: 'calc(100vh - 52px)', marginTop: 52 }}
       >
         {children}
       </div>

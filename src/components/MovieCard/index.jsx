@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import useImage, { imageSizeKey } from 'hooks/useImage';
 import Link from 'next/link';
 
-const MovieCard = ({ movie, className = '', isLarge = false, noLink = false }) => {
+const MovieCard = ({ movie, className = '', isLarge = false, noLink = false, type }) => {
   const imageUrl = useImage({
     path: movie?.poster_path,
     size: imageSizeKey.poster,
@@ -12,7 +12,7 @@ const MovieCard = ({ movie, className = '', isLarge = false, noLink = false }) =
   const Container = noLink ? 'div' : Link;
 
   return (
-    <Container href={`/movie/${movie?.id}`} prefetch={false}>
+    <Container href={`/movie/${movie?.id}?type=${type}`} prefetch={false}>
       <div
         className={classNames(
           'flex flex-col h-full',

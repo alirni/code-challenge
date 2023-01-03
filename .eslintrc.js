@@ -24,7 +24,6 @@ module.exports = {
   rules: {
     quotes: ['error', 'single'],
     indent: 'off',
-    'no-undef': 'off',
     'no-unused-vars': 'off',
     'implicit-arrow-linebreak': 'off',
     'no-unsafe-optional-chaining': 'off',

@@ -2,13 +2,16 @@ import { useContext, useMemo } from 'react';
 import { StoreContext } from 'context/store';
 import { useQueries } from 'react-query';
 
-import { MainLayout, MovieList } from 'components';
+import { MainLayout } from 'components';
+import Link from 'next/link';
+import MovieItems from 'components/MovieItems';
+import { getMovieApi } from 'api';
 
 const WishlistPage = () => {
   const { wishlist } = useContext(StoreContext);
 
   const getWishlistKeys = () => {
-    return wishlist.map((id) => ({ queryKey: ['movie', id] }));
+    return wishlist.map((id) => ({ queryKey: ['movie', id], queryFn: () => getMovieApi(id) }));
   };
 
   const result = useQueries(getWishlistKeys());
@@ -24,9 +27,15 @@ const WishlistPage = () => {
   return (
     <MainLayout image='/img/back.jpg'>
       {wishlist?.length ? (
-        <MovieList title='Wishlist' list={preparedWishlist} />
+        <MovieItems title='Wishlist' list={preparedWishlist} type='primary' />
       ) : (
-        <div>Your wishlist is empty! go to Home.</div>
+        <div className='flex items-center justify-center h-full text-lg font-bold'>
+          Your wishlist is empty! Pleas go back to
+          <Link href='/home'>
+            <di className='ml-1 text-primary-default bg-pr'> home page</di>
+          </Link>
+          .
+        </div>
       )}
     </MainLayout>
   );

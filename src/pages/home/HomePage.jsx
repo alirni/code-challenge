@@ -13,9 +13,19 @@ function HomePage() {
 
   return (
     <MainLayout image='/img/back.jpg'>
-      <MovieList title='Top Action Movies 2022' list={actionsMovie.data} />
-      <MovieList title='Top Comedy Movies 2022' list={comedyMovie.data} />
-      <MovieList title='Top Mystery Movies 2022' list={mysteryMovie.data} />
+      <MovieList
+        className='mb-4'
+        title='Top Action Movies 2022'
+        list={actionsMovie.data}
+        type='primary'
+      />
+      <MovieList
+        className='mb-4'
+        title='Top Comedy Movies 2022'
+        list={comedyMovie.data}
+        type='secondary'
+      />
+      <MovieList title='Top Mystery Movies 2022' list={mysteryMovie.data} type='important' />
     </MainLayout>
   );
 }
