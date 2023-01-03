@@ -41,7 +41,7 @@ function MoviePage() {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <MainLayout image={imageUrl}>
+    <MainLayout image={imageUrl} title='Movie'>
       <div className='flex flex-col items-center justify-between p-12 lg:flex-row'>
         <MovieCard movie={data} isLarge={breakpoint !== 'mobile'} noLink />
         <div

@@ -13,7 +13,7 @@ function HomePage() {
     return <div>Loading...</div>;
 
   return (
-    <MainLayout image='/img/back.jpg'>
+    <MainLayout image='/img/back.jpg' title='Home'>
       <MovieList
         className='mb-4'
         title='Top Action Movies 2022'

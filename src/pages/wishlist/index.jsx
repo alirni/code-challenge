@@ -25,14 +25,14 @@ const WishlistPage = () => {
   }, [result]);
 
   return (
-    <MainLayout image='/img/back.jpg'>
+    <MainLayout image='/img/back.jpg' title='Wishlist'>
       {wishlist?.length ? (
         <MovieItems title='Wishlist' list={preparedWishlist} type='primary' />
       ) : (
         <div className='flex items-center justify-center h-full text-lg font-bold'>
           Your wishlist is empty! Pleas go back to
           <Link href='/home'>
-            <di className='ml-1 text-primary-default bg-pr'> home page</di>
+            <div className='ml-1 text-primary-default bg-pr'> home page</div>
           </Link>
           .
         </div>

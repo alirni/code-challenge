@@ -25,7 +25,7 @@ const MovieCard = ({ movie, className = '', isLarge = false, noLink = false, typ
       >
         <div
           className={classNames(
-            'p-2 font-bold text-center text-white bg-white bg-opacity-10',
+            'p-2 font-bold text-center text-white bg-white bg-opacity-10 truncate',
             isLarge ? 'text-xl rounded-t-lg' : 'text-sm rounded-t'
           )}
         >
