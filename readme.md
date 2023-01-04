@@ -8,6 +8,8 @@ Install packages with the following command:
 yarn
 ```
 
+Rename `.env.sample` to `.env` and fill the environments
+
 ## Build
 
 First, build the project:
