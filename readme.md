@@ -1,4 +1,4 @@
-# MYTHERESA Frontend UI Challenge
+# Frontend UI Challenge
 
 ## Installation
 

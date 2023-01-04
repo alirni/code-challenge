@@ -1,5 +1,5 @@
 {
-  "name": "mytheresa-frontend-ui-challenge",
+  "name": "frontend-ui-challenge",
   "private": true,
   "scripts": {
     "dev": "next dev",
